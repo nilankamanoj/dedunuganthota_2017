@@ -70,43 +70,87 @@
 
 				</section>
 
+
 			<!-- Main -->
-				<article id="main">
-				<section class="wrapper style4 container">
+			<article id="main">
+
+
+
+					<!-- One -->
+						<section class="wrapper style4 container">
+							
+										
+																	
 
 							<div class="row 150%">
-								<div class="8u 12u(narrower)">
-				<div class="content">
-                <?php
+							<?php
 include('functions/connect.php');
 include('functions/functions.php');
 ?>
 
 		<script type="text/javascript" src="js/jquery.min.js"></script>
 		<script type="text/javascript" src="js/function.js"></script>
-
+		
 <?php 
 $sql = "SELECT * FROM items ORDER BY id ASC";
 $query = mysqli_query($con,$sql);
+
 while ($row = mysqli_fetch_array($query)) {
+
+
 ?>
-<li>
-<?php if (check_ip($row['id'],get_real_ip()) == 0) { ?>
-<a href="javascript:void();" class="like" id="<?php echo $row['id']; ?>">Like <span><?php echo likes($row['id']); ?></span></a>
+								<div class="4u 12u(narrower)">
+
+									<!-- Sidebar -->
+										<div class="sidebar">
+											<section>
+												<header>
+													<h3>Topic Of The Photo</h3>
+												</header>
+												<p>some description of the photo,author</p>
+												<footer>
+												<?php if (check_ip($row['id'],get_real_ip(),$con) == 0) { ?>
+<a href="javascript:void();" class="like" id="<?php echo $row['id']; ?>">Like <span><?php echo likes($row['id'],$con); ?></span></a>
 <?php } else { ?>
-<a href="javascript:void();" class="liked">Liked <span><?php echo likes($row['id']); ?></span></a>
+<a href="javascript:void();" class="liked">Liked <span><?php echo likes($row['id'],$con); ?></span></a>
 <?php } ?>
-<br>
-<a href="#" class="image featured"><img src=<?php echo 'imggal/'.$row['item'].'.jpg'; ?> alt="left" /></a>
-</li>
-<br>
-<br>
-<?php
+												</footer>
+												<hr/>
+											</section>
+
+	
+										</div>
+
+								</div>
+
+								<div class="8u 12u(narrower)">
+
+									<!-- Content -->
+										<div class="content">
+											<section>
+											<a href="#" class="image featured"><img src=<?php echo 'imggal/'.$row['item'].'.jpg'; ?> alt='left'/></a>
+												
+											</section>
+										</div>
+
+								</div>
+
+
+
+
+								<?php
+
 }
 ?>
-</ul>
-</div>
-</div>
+							</div>
+						</section>
+
+					</article>
+						
+								
+				<div class="content">
+           
+
 </div>
 </div>
 

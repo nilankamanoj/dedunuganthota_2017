@@ -171,7 +171,9 @@
 		}
 
 	}
-
+	.boxed {
+		border: 1px solid green ;
+	  } 
 	@media screen and (max-width: 980px) {
 
 		.container.\31 25\25 {
