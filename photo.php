@@ -72,6 +72,11 @@
 
 			<!-- Main -->
 				<article id="main">
+				<section class="wrapper style4 container">
+
+							<div class="row 150%">
+								<div class="8u 12u(narrower)">
+				<div class="content">
                 <?php
 include('functions/connect.php');
 include('functions/functions.php');
@@ -92,7 +97,7 @@ while ($row = mysqli_fetch_array($query)) {
 <a href="javascript:void();" class="liked">Liked <span><?php echo likes($row['id']); ?></span></a>
 <?php } ?>
 <br>
-<a href="#" class=""><img src=<?php echo 'imggal/'.$row['item'].'.jpg'; ?> alt="left" /></a>
+<a href="#" class="image featured"><img src=<?php echo 'imggal/'.$row['item'].'.jpg'; ?> alt="left" /></a>
 </li>
 <br>
 <br>
@@ -100,6 +105,8 @@ while ($row = mysqli_fetch_array($query)) {
 }
 ?>
 </ul>
+</div>
+</div>
 </div>
 </div>
 
