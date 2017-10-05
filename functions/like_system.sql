@@ -82,3 +82,23 @@ CREATE TABLE IF NOT EXISTS `contact` (
   `message` varchar(500) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+
+$sql = "INSERT INTO `imgs` (`filename`,`name`, `email`, `caption`,'description') VALUES"
+CREATE TABLE IF NOT EXISTS `imgs` (
+  `id` int(12) NOT NULL AUTO_INCREMENT,
+  `filename` varchar(15) NOT NULL,
+  `name` varchar(40) NOT NULL,
+  `email` varchar(40) NOT NULL,
+  `caption` varchar(100) NOT NULL,
+  `description` varchar(1000) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+CREATE TABLE IF NOT EXISTS `vdos` (
+  `id` int(12) NOT NULL AUTO_INCREMENT,
+  `filename` varchar(15) NOT NULL,
+  `name` varchar(40) NOT NULL,
+  `email` varchar(40) NOT NULL,
+  `caption` varchar(100) NOT NULL,
+  `description` varchar(1000) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;

@@ -26,49 +26,76 @@ if(isset($_POST['btn-signup']))
 		$error[] = "provide a short description !";
 	}
 	else if (in_array($file_ext,$allowed_file_types) && ($filesize < 20388608))
-{
-	// Rename file
-	if($file_ext == '.jpg' || $file_ext == '.jpeg' ){
-		$newfilename = 'img'.. $file_ext;
-		move_uploaded_file($_FILES["file"]["tmp_name"], "upload/images/" . $newfilename);
-		$sql = "INSERT INTO `imgs` (`name`, `email`, `message`) VALUES ('{$name}','{$umail}','{$msg}' )";
-		//$query = mysqli_query($con,$sql);
-		header("Location: upload.php?pass");
+	{
+		// Rename file
+		if($file_ext == '.jpg' || $file_ext == '.jpeg' )
+		{
+			$sql="SELECT id FROM imgs";
+			$query = mysqli_query($con,$sql);
+			$i=mysqli_num_rows ($query);
+			$i++;
+			$add=strval($i);
+			$newfilename = 'img'.$add. $file_ext;
+			if (file_exists("upload/images/" . $newfilename))
+			{
+				// file already exists error
+				$error[]= "Try again ! error with your browser";
+			}
+			else
+			{
+				move_uploaded_file($_FILES["file"]["tmp_name"], "upload/images/" . $newfilename);
+				$sql = "INSERT INTO `imgs` (`filename`,`name`, `email`, `caption`,`description`) VALUES ('{$newfilename}','{$name}','{$umail}','{$caption}','{$des}' )";
+				$query = mysqli_query($con,$sql);
+				header("Location: upload.php?pass");
+			}
+			}
+			else if($file_ext == '.mp4' || $file_ext == '.avi' ){
+				$sql="SELECT id FROM vdos";
+				$query = mysqli_query($con,$sql);
+				$i= mysqli_num_rows ($query);
+				$i++;
+				$add=strval($i);
+				$newfilename = 'vdo'.$add. $file_ext;
+				if (file_exists("upload/videos/" . $newfilename))
+				{
+					// file already exists error
+					$error[]="Try again ! error with your browser";
+				}
+				else
+				{
+				move_uploaded_file($_FILES["file"]["tmp_name"], "upload/videos/" . $newfilename);
+				$sql = "INSERT INTO `vdos` (`filename`,`name`, `email`, `caption`,`description`) VALUES ('{$newfilename}','{$name}','{$umail}','{$caption}','{$des}' )";
+				$query = mysqli_query($con,$sql);
+				header("Location: upload.php?pass");
+			}
+		}
+
+		}
+		elseif (empty($file_basename))
+		{
+			// file selection error
+			$error[] = "Select a file to upload!";
+		}
+		elseif ($filesize > 20388608)
+
+		{
+			// file size error
+			$error[] = "File is too large!. Email the photo with above details!";
+		}
+		else
+		{
+			// file type error
+			$error[] = "File type error!";
+			unlink($_FILES["file"]["tmp_name"]);
+		}
+
 	}
-	if($file_ext == '.mp4' || $file_ext == '.avi' ){
-		$newfilename = 'vdo'.. $file_ext;
-		move_uploaded_file($_FILES["file"]["tmp_name"], "upload/videos/" . $newfilename);
-		//$sql = "INSERT INTO `contact` (`name`, `email`, `message`) VALUES ('{$name}','{$umail}','{$msg}' )";
-		//$query = mysqli_query($con,$sql);
-		header("Location: upload.php?pass");
-	}
-
-}
-elseif (empty($file_basename))
-{
-	// file selection error
-	$error[] = "Select a file to upload!";
-}
-elseif ($filesize > 20388608)
-
-{
-	// file size error
-	$error[] = "File is too large!. Email the photo with above details!";
-}
-else
-{
-	// file type error
-	$error[] = "File type error!";
-	unlink($_FILES["file"]["tmp_name"]);
-}
-
-}
-?>
-<!DOCTYPE HTML>
-<!--
-Twenty by HTML5 UP
-html5up.net | @ajlkn
-Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
+	?>
+	<!DOCTYPE HTML>
+	<!--
+	Twenty by HTML5 UP
+	html5up.net | @ajlkn
+	Free for personal and commercial use under the CCA 3.0 license (html5up.net/license)
 -->
 <html>
 <head>
@@ -146,11 +173,11 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
 					?>
 
 
-						<div class="form-group">
-							<input type="button" id="loadFileXml" value="Browse Device" onclick="document.getElementById('file').click();" />
-							<input type="file" style="display:none;" id="file" name="file" value="<?php if(isset($error)){echo $file;}?>"/>
-						</div>
-						<br/>
+					<div class="form-group">
+						<input type="button" id="loadFileXml" value="Browse Device" onclick="document.getElementById('file').click();" />
+						<input type="file" style="display:none;" id="file" name="file" value="<?php if(isset($error)){echo $file;}?>"/>
+					</div>
+					<br/>
 
 					<div class="form-group">
 						<input type="text" class="form-control" name="txt_name" placeholder="Enter name" value="<?php if(isset($error)){echo $name;}?>" />
