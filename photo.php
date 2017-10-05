@@ -28,7 +28,7 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
 						<ul>
 							<li><a href="index.html">Home</a></li>
 							<li><a href="video.php">Video Contest</a></li>
-							<li><a href="about.html">About us</a></li>
+							<li><a href="about.php">About us</a></li>
 							<li><a href="contact.php">Contact</a></li>
 
 						</ul>
