@@ -23,13 +23,13 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
 	else {
 
 
-	 ?>
-	<link rel="stylesheet" type="text/css" href="assets/css/slideshow.css"></link>
-	<?php
-} ?>
+		?>
+		<link rel="stylesheet" type="text/css" href="assets/css/slideshow.css"></link>
+		<?php
+	} ?>
 	<script type="text/javascript" src="https://code.jquery.com/jquery-2.2.0.min.js"></script>
 	<script type="text/javascript" src="assets/js/slideshow.js"></script>
-			<link href="http://www.jqueryscript.net/css/jquerysctipttop.css" rel="stylesheet" type="text/css">
+	<link href="http://www.jqueryscript.net/css/jquerysctipttop.css" rel="stylesheet" type="text/css">
 </head>
 <body class="index">
 	<div id="page-wrapper">
@@ -83,6 +83,15 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
 	-->
 
 </div>
+</div>
+<article id="main">
+
+	<header class="special container">
+
+		<h2>දේදුනු ගංතොට</h2>
+		<p>දේදුනු ගංතොට ගැන </p>
+	</header>
+</article>
 
 </section>
 <div id="slideshow-wrapper">
