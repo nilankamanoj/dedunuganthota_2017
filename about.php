@@ -292,6 +292,7 @@ Three
 </section>
 
 Footer -->
+</br>
 <footer id="footer">
 
 	<ul class="icons">

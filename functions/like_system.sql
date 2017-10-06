@@ -102,3 +102,19 @@ CREATE TABLE IF NOT EXISTS `vdos` (
   `description` varchar(1000) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=MyISAM DEFAULT CHARSET=utf8 AUTO_INCREMENT=1 ;
+CREATE TABLE IF NOT EXISTS `items` (
+  `id` int(12) NOT NULL AUTO_INCREMENT,
+  `item` varchar(255) NOT NULL,
+  `name` varchar(40) NOT NULL,
+  `caption` varchar(100) NOT NULL,
+  `description` varchar(1000) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=11 ;
+CREATE TABLE IF NOT EXISTS `items2` (
+  `id` int(12) NOT NULL AUTO_INCREMENT,
+  `item` varchar(255) NOT NULL,
+  `name` varchar(40) NOT NULL,
+  `caption` varchar(100) NOT NULL,
+  `description` varchar(1000) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=MyISAM  DEFAULT CHARSET=utf8 AUTO_INCREMENT=11 ;

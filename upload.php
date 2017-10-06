@@ -109,7 +109,9 @@ if(isset($_POST['btn-signup']))
 </head>
 <body class="index">
 	<div id="page-wrapper">
-
+<script type="text/javascript">
+	window.alert("15MB ට අඩු නිර්මාණ සඳහා පමණක් මෙම පිටුව භාවිතා කරන්න. ඊට වැඩි ඒවා අප වෙත e-mail කරන්න.");
+</script>
 		<!-- Header -->
 		<header id="header" class="alt">
 			<h1 id="logo"><a href="index.html">දේදුනු ගංතොට  <span></span></a></h1>
@@ -142,11 +144,16 @@ if(isset($_POST['btn-signup']))
 			automatically wrap lines, so be sure to use line breaks where
 			appropriate (<br />).
 		-->
+		<p>15MB ට අඩු නිර්මාණ සඳහා පමණක් මෙම පිටුව භාවිතා කරන්න.<p/>
+			<p> ඊට වැඩි ඒවා අප වෙත e-mail කරන්න.
+එම නිර්මාණ පහත දැක්වෙන විස්තර සමඟ <strong>dedunuganthotauom@gmail.com</strong> ලිපිනයට එවන්න.</p>
 		<div class="inner">
 
 			<header>
 				<h2>දේදුනු ගංතොට</h2>
 			</header>
+
+
 			<form method="post" class="form-signin" enctype="multipart/form-data">
 				<h2>Upload File.</h2><hr />
 				<form method="post" class="form-signin" enctype="multipart/form-data">
@@ -186,13 +193,14 @@ if(isset($_POST['btn-signup']))
 						<input type="text" class="form-control" name="txt_umail" placeholder="Enter email" value="<?php if(isset($error)){echo $umail;}?>" />
 					</div>
 					<div class="form-group">
-						<input type="text" class="form-control" name="txt_caption" placeholder="Enter the caption" value="<?php if(isset($error)){echo $caption;}?>" />
+						<input type="text" class="form-control" name="txt_caption" placeholder="මාතෘකාව(සිංහලෙන්)" value="<?php if(isset($error)){echo $caption;}?>" />
 					</div>
 					<div class="form-group">
-						<input type="text" class="form-control" name="txt_des" placeholder="Enter some discription" value="<?php if(isset($error)){echo $des;}?>" />
+						<input type="text" class="form-control" name="txt_des" placeholder="කෙටි විස්තරයක්(සිංහලෙන්) " value="<?php if(isset($error)){echo $des;}?>" />
 					</div>
 
 					<div class="clearfix"></div><hr />
+
 
 					<div class="form-group">
 
@@ -227,6 +235,7 @@ if(isset($_POST['btn-signup']))
 			<ul class="copyright">
 				<li>Created By </li><li>Nilanka Manoj</li>
 			</ul>
+			
 
 		</footer>
 

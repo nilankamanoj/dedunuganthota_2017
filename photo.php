@@ -105,9 +105,10 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
 					<div class="sidebar">
 						<section>
 							<header>
-								<h3>Topic Of The Photo</h3>
+								<h3><?php echo $row['caption'];?></h3>
 							</header>
-							<p>some description of the photo,author</p>
+							<p>ඉදිරිපත් කළේ,<?php echo $row['name'];?></p>
+							<p><?php echo $row['description'];?></p>
 							<footer>
 								<?php if (check_ip($row['id'],get_real_ip(),$con) == 0) { ?>
 									<a href="javascript:void();" class="like" id="<?php echo $row['id']; ?>">Like <span><?php echo likes($row['id'],$con); ?></span></a>
@@ -128,7 +129,7 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
 					<!-- Content -->
 					<div class="content">
 						<section>
-							<a href="#" class="image featured"><img src=<?php echo 'imggal/'.$row['item'].'.jpg'; ?> alt='left'/></a>
+							<a href="#" class="image featured"><img src=<?php echo 'imggal/'.$row['item']; ?> alt='left'/></a>
 
 						</section>
 					</div>

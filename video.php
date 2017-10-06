@@ -108,9 +108,10 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
 					<div class="sidebar">
 						<section>
 							<header>
-								<h3>Topic Of The Photo</h3>
+								<h3><?php echo $row['caption'];?></h3>
 							</header>
-							<p>some description of the photo,author</p>
+							<p>ඉදිරිපත් කළේ,<?php echo $row['name'];?></p>
+							<p><?php echo $row['description'];?></p>
 							<footer>
 								<?php if (check_ip($row['id'],get_real_ip(),$con) == 0) { ?>
 									<a href="javascript:void();" class="like" id="<?php echo $row['id']; ?>">Like <span><?php echo likes($row['id'],$con); ?></span></a>
@@ -138,14 +139,14 @@ Free for personal and commercial use under the CCA 3.0 license (html5up.net/lice
 
 
 								<video poster="imggal/img1.jpg" width="300" height="250" controls>
-									<source src=<?php echo 'vdogal/'.$row['item'].'.mp4'; ?>  type="video/mp4">
+									<source src=<?php echo 'vdogal/'.$row['item']; ?>  type="video/mp4">
 									</video>
 									<?php
 								}
 								else{
 									?>
 									<video poster="imggal/img1.jpg" width="600" height="350" controls>
-										<source src=<?php echo 'vdogal/'.$row['item'].'.mp4'; ?>  type="video/mp4">
+										<source src=<?php echo 'vdogal/'.$row['item']; ?>  type="video/mp4">
 										</video>
 										<?php
 									}
